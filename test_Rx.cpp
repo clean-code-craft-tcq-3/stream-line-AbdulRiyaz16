@@ -9,7 +9,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   float Temperature[total_count] = {0};
   float RateOfCharge[total_count] = {0};
   displayData(&Temperature[0], &RateOfCharge[0]);
-  float Temp[2][2] = {{10,0.1}, {26,0.15}};
+  float Temp[2][2] = {{10,0.1}, {20,0.20}};
   printf("-----------------------------------------------");
   printf("%f %f",Temperature[0],RateOfCharge[0]);
   for(int index = 0; index < 2; index++)
