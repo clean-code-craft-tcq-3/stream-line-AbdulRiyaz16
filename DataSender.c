@@ -1,27 +1,27 @@
 #include "DataSender.h"
 
-void readSensorData(float* temperature, float* chargerate)
+void readSensorData(float* temperature, float* rateOfCharge)
 { 
     FILE *fp; 
-    float temp_data,chargerate_data;
+    float temperature_data,rateOfCharge_data;
     fp =fopen("Data.text","r");
     if (fp)
     {
-        for(int index=0; fscanf(fp, "%f %f\n",&temp_data,&chargerate_data)!=EOF; index++)
+        for(int index=0; fscanf(fp, "%f %f\n",&temperature_data,&rateOfCharge_data)!=EOF; index++)
         {
-          *(temperature+index) = temp_data;
-          *(chargerate+index) = chargerate_data;
+          *(temperature+index) = temperature_data;
+          *(rateOfCharge+index) = rateOfCharge_data;
         }
     }
     fclose(fp); 
  }
  
- int printSensorData(float* temperature, float* chargerate)
+ int printSensorData(float* temperature, float* rateOfCharge)
  {
      int count=0;
      for(int index=0; index<total_count; index++)
      {
-         printf("\n Temperature : %f \t Charge rate : %f \n",*(temperature+index),*(chargerate+index));
+         printf("\n Temperature : %f \t Charge rate : %f \n",*(temperature+index),*(rateOfCharge+index));
          count++;
      }
      if(count == total_count)
@@ -33,7 +33,7 @@ void readSensorData(float* temperature, float* chargerate)
 
 int communicateSensorData()
 {
-    float temperature[total_count], chargerate[total_count] = {0};
-    readSensorData(temperature,chargerate);
-    return printSensorData(temperature,chargerate);
+    float temperature[total_count], rateOfCharge[total_count] = {0};
+    readSensorData(temperature,rateOfCharge);
+    return printSensorData(temperature,rateOfCharge);
 }
