@@ -13,7 +13,7 @@ int main()
      readSensorData(temperature_array,rateOfCharge_array);
  
      int count= 0;
-     for(int index=0;index<21;index++)
+     for(int index=0;index<9;index++)
      {
        assert(temperature_array[count] == output_data[index][0]);
        assert(rateOfCharge_array[count] == output_data[index][1]);
