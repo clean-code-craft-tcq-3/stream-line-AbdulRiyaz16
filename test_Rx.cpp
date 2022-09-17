@@ -22,7 +22,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
 TEST_CASE("Check minimum, maximum and moving average of temperature and RateOfCharge")
 {
   float Temperature[readings_count] = {0};
-  float ChargeRate[readings_count] = {0};
+  float RateOfCharge[readings_count] = {0};
   readSensorDataFromConsole(&Temperature, &RateOfCharge);
   float observedMaxValue, observedMinValue, observedSMAValue, expectedMaxValue, expectedMinValue, expectedSAvgValue;
   expectedMaxValue = 50;
@@ -47,6 +47,6 @@ TEST_CASE("Check minimum, maximum and moving average of temperature and RateOfCh
   REQUIRE(observedMinValue == expectedMinValue);
   REQUIRE(observedSMAValue == expectedSAvgValue);
 
-  REQUIRE(printCalulatedDataToConsole(&ChargeRate[0],0.79,0.00,0.81) == 1);
+  REQUIRE(printCalulatedDataToConsole(&RateOfCharge[0],0.79,0.00,0.81) == 1);
 }
 
