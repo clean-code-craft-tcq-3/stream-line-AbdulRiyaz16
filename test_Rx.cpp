@@ -37,8 +37,8 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   observedMaxValue = calculateMaxValue(&RateOfCharge[0]);
   observedMinValue = calculateMinValue(&RateOfCharge[0]);
   observedAvgValue = calculateAvg(&RateOfCharge[0]);
-  //REQUIRE(observedMaxValue == expectedMaxValue);
-  //REQUIRE(observedMinValue == expectedMinValue);
+  REQUIRE(observedMaxValue == expectedMaxValue);
+  REQUIRE(observedMinValue == expectedMinValue);
   //REQUIRE(observedAvgValue == expectedAvgValue);
 
   REQUIRE(printData(&RateOfCharge[0],0.50,0.00,0.48) == 1);
