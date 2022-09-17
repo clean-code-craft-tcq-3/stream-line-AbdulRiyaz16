@@ -82,8 +82,9 @@ float calculateAvg(float* sensorData)
     return(Avg);
 }
 
-int printData(float* sensorData,float maxValue, float minValue, float Avg)
+int printData(float* sensorData)
 {
+    
     printf("Data received from sender:");
     for(int index = 0; index < total_count; index++)
     {
