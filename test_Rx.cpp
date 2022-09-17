@@ -29,7 +29,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   REQUIRE(observedMinValue == expectedMinValue);
   REQUIRE(observedAvgValue == expectedAvgValue);
 
-  REQUIRE(printData(&Temperature[0],50,0,48) == 1);  
+  REQUIRE(printData(&Temperature[0]) == 1);  
 
   expectedMaxValue = 0.50;
   expectedMinValue = 0.00;
@@ -42,6 +42,6 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   REQUIRE(observedMinValue == expectedMinValue);
   REQUIRE(observedAvgValue == expectedAvgValue);
 
-  REQUIRE(printData(&RateOfCharge[0],0.50,0.00,0.48) == 1);
+  REQUIRE(printData(&RateOfCharge[0]) == 1);
 }
 
