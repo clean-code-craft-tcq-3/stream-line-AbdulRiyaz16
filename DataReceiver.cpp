@@ -89,15 +89,15 @@ int printData(float* sensorData,float maxValue, float minValue, float Avg)
     {
         printf("%f\n",sensorData[index]);
     }
-    printf("Maximum value = %f\n",maxValue);
-    printf("Minimum value = %f\n",minValue);
-    printf("Average value = %f\n",Avg);
+    printf("Maximum value = %f\n",calculateMaxValue(sensorData));
+    printf("Minimum value = %f\n",calculateMinValue(sensorData));
+    printf("Average value = %f\n",calculateAvg(sensorData));
     return(1);
 }
 
 void displayData(float* temperature, float* rateOfCharge)
 {
     readSensorData(temperature,rateOfCharge);
-    printData(temperature,calculateMaxValue(temperature),calculateMinValue(temperature),calculateAvg(temperature));
-    printData(rateOfCharge,calculateMaxValue(rateOfCharge),calculateMinValue(rateOfCharge),calculateAvg(rateOfCharge));
+    printData(temperature);
+    printData(rateOfCharge);
 }
