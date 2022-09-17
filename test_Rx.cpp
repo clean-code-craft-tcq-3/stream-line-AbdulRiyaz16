@@ -11,7 +11,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   displayData(&Temperature[0], &RateOfCharge[0]);
   float Temp[2][2] = {{10,0.1}, {20,0.20}};
   printf("-----------------------------------------------");
-  printf("/n %f /n %f",Temperature[0],RateOfCharge[0]);
+  printf("\n %f \n %f",Temperature[0],RateOfCharge[0]);
   for(int index = 0; index < 2; index++)
   {
     REQUIRE(Temperature[index] == Temp[index][0]);
@@ -37,6 +37,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   observedMaxValue = calculateMaxValue(&RateOfCharge[0]);
   observedMinValue = calculateMinValue(&RateOfCharge[0]);
   observedAvgValue = calculateAvg(&RateOfCharge[0]);
+  printf("Observed Avg value\n %f",observedAvgValue);
   REQUIRE(observedMaxValue == expectedMaxValue);
   REQUIRE(observedMinValue == expectedMinValue);
   //REQUIRE(observedAvgValue == expectedAvgValue);
