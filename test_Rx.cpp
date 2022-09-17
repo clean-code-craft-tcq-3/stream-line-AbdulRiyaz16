@@ -27,7 +27,7 @@ TEST_CASE("Check minimum, maximum and average of temperature and RateOfCharge")
   expectedMaxValue = 50;
   expectedMinValue = 0;
   expectedSAvgValue = 18;
-  readSensorData(&Temperature, &RateOfCharge);
+ // readSensorData(&Temperature[0], &RateOfCharge);
   observedMaxValue = calculateMaxValue(&Temperature[0]);
   observedMinValue = calculateMinValue(&Temperature[0]);
   observedSMAValue = calculateAvg(&Temperature[0]);
