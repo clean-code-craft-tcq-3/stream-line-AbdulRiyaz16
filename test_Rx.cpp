@@ -21,7 +21,7 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   float observedMaxValue, observedMinValue, observedAvgValue, expectedMaxValue, expectedMinValue, expectedAvgValue;
   expectedMaxValue = 50;
   expectedMinValue = 0;
-  expectedAvgValue = 18;
+  expectedAvgValue = 48;
   observedMaxValue = calculateMaxValue(&Temperature[0]);
   observedMinValue = calculateMinValue(&Temperature[0]);
   observedAvgValue = calculateAvg(&Temperature[0]);
@@ -29,11 +29,11 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
   REQUIRE(observedMinValue == expectedMinValue);
   REQUIRE(observedAvgValue == expectedAvgValue);
 
-  REQUIRE(printData(&Temperature[0],50,0,18) == 1);  
+  REQUIRE(printData(&Temperature[0],50,0,48) == 1);  
 
-  expectedMaxValue = 0.79;
+  expectedMaxValue = 0.50;
   expectedMinValue = 0.00;
-  expectedAvgValue = 0.162;
+  expectedAvgValue = 0.48;
   observedMaxValue = calculateMaxValue(&RateOfCharge[0]);
   observedMinValue = calculateMinValue(&RateOfCharge[0]);
   observedAvgValue = calculateAvg(&RateOfCharge[0]);
