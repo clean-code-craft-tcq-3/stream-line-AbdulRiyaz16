@@ -18,3 +18,35 @@ TEST_CASE("Tests to check whether sensor data is read from console and also to c
     REQUIRE(RateOfCharge[index] == Temp[index][1]);
   }
 }
+
+TEST_CASE("Check minimum, maximum and moving average of temperature and RateOfCharge")
+{
+  float Temperature[readings_count] = {0};
+  float ChargeRate[readings_count] = {0};
+  readSensorDataFromConsole(&Temperature, &RateOfCharge);
+  float observedMaxValue, observedMinValue, observedSMAValue, expectedMaxValue, expectedMinValue, expectedSAvgValue;
+  expectedMaxValue = 50;
+  expectedMinValue = 0;
+  expectedSAvgValue = 18;
+  observedMaxValue = calculateMaxValue(&Temperature[0]);
+  observedMinValue = calculateMinValue(&Temperature[0]);
+  observedSMAValue = calculateMovingAverage(&Temperature[0]);
+  REQUIRE(observedMaxValue == expectedMaxValue);
+  REQUIRE(observedMinValue == expectedMinValue);
+  REQUIRE(observedSMAValue == expectedSAvgValue);
+
+  REQUIRE(printCalulatedDataToConsole(&Temperature[0],50,0,18) == 1);  
+
+  expectedMaxValue = 0.50;
+  expectedMinValue = 0.00;
+  expectedSAvgValue = 0.162;
+  observedMaxValue = calculateMaxValue(&RateOfCharge[0]);
+  observedMinValue = calculateMinValue(&RateOfCharge[0]);
+  observedSMAValue = calculateMovingAverage(&RateOfCharge[0]);
+  REQUIRE(observedMaxValue == expectedMaxValue);
+  REQUIRE(observedMinValue == expectedMinValue);
+  REQUIRE(observedSMAValue == expectedSAvgValue);
+
+  REQUIRE(printCalulatedDataToConsole(&ChargeRate[0],0.79,0.00,0.81) == 1);
+}
+
