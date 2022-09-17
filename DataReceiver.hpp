@@ -5,5 +5,5 @@ void readSensorData(float* temperature, float* Rateofcharge);
 float calculateMaxValue(float* sensorData);
 float calculateMinValue(float* sensorData);
 float calculateAvg(float* sensorData);
-int printData(float* sensorData,float maxValue, float minValue, float Avg);
+int printData(float* sensorData);
 void displayData(float* Temperature, float* Rateofcharge);
